@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Isadora Website</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.4/lottie.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+        
+        <link href="fontawesome/css/all.css" rel="stylesheet">
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+
+        <style>
+            body {
+                font-family: 'Inter', sans-serif !important;
+                height: 100vh;
+                max-height: 100vh;
+                background-color: #525252;
+
+                -webkit-transition: background-color 1000ms linear;
+                -moz-transition: background-color 1000ms linear;
+                -o-transition: background-color 1000ms linear;
+                -ms-transition: background-color 1000ms linear;
+                transition: background-color 1000ms linear;
+            }
+
+            #topBar, #botBar {
+                color: #D7D7D7;
+                position: absolute;
+                width: 100%;
+                font-size: 1.8em;
+            }
+
+            #topBar i, #botbar i, #topBar img {
+                cursor: pointer;
+            }
+
+            #topBar {
+                top: 0;
+            }
+
+            #botBar {
+                bottom: 0;
+            }
+
+            .tittle {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 26.2718px;
+                line-height: 25px;
+                /* or 58% */
+
+                letter-spacing: -0.045em;
+                text-transform: uppercase;
+
+                color: #D7D7D7;
+            }
+
+            #preloader .content {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                color: #D9D9D9;
+            }
+
+            #introText {
+                font-size: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="topBar" class="pt-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 text-start">
+                        <img src="img/logo.svg" class="img-fluid">
+                    </div>
+                    <div class="col-6 text-end">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="botBar" class="pb-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 text-start">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </div>
+                    <div class="col-6 text-end">
+                        <i class="fa-brands fa-linkedin-in pe-2"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section id="preloader">
+            <div class="content">
+                <p id="introText" class="lead text-center animate__animated animate__jackInTheBox">
+                    HAYLEY’S TEXT<br>̣GOES HERE<br>&hearts;
+                </p>
+                <div id="preloader-anime">
+                    
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    </body>
+    <script>
+
+
+        var l = lottie.loadAnimation({
+            container: document.getElementById("lootie"), // the dom element that will contain the animation
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'prava_animacija.json' // the path to the animation json
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            ucitajPreload();
+        }, false);
+
+        async function ucitajPreload() {
+            await new Promise(r => setTimeout(r, 2000));
+            
+            $("#introText").fadeOut('slow', function() {
+                ucitajAnime();
+            });
+        }
+
+        function ucitajAnime() {
+            var l = lottie.loadAnimation({
+                container: document.getElementById("preloader-anime"), // the dom element that will contain the animation
+                renderer: 'svg',
+                loop: false,
+                autoplay: true,
+                path: 'assets/preloader.json' // the path to the animation json
+            });
+        }
+    </script>
+</html>
